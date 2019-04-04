@@ -6,15 +6,15 @@ git config --global user.name "$GIT_NAME" && git config --global user.email "$GI
 # Step 2- run once
 repo sync
 
-sed -i 's/INHERIT += "sanity"/INHERIT += ""/g' /data/imx-yocto-bsp/sources/poky/meta/conf/sanity.conf
-
 # Step 3- run once (choose from chapter 5.1)
-# DISTRO=$DISTRO MACHINE=$MACHINE source fsl-setup-release.sh -b build_$MACHINE
+DISTRO=$DISTRO MACHINE=$MACHINE source fsl-setup-release.sh -b build_$MACHINE
 
 #Step 3.b - for rebuild run without DISTRO
 #MACHINE=$MACHINE source fsl-setup-release.sh -b build_$MACHINE
 
 # Step 4 check conf folders
 
+sed -i 's/INHERIT += "sanity"/INHERIT += ""/g' /data/imx-yocto-bsp/sources/poky/meta/conf/sanity.conf
+
 #Step 5 - choose project image (5.2)
-# bitbake $IMAGE
+bitbake $IMAGE
