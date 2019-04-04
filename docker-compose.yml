@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+   compiler:
+     build: .
+     stdin_open: true
+     tty: true
+     entrypoint: /bin/sh
+     environment:
+       - GIT_EMAIL=till.witt@nxp.com
+       - GIT_NAME=Till Witt
+       - MACHINE=imx6ulevk
+       - DISTRO=fsl-imx-x11
+       - IMAGE=core-image-base
+     volumes:
+       - ./data:/data
+       - ./scripts:/scripts
