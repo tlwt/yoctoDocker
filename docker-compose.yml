@@ -9,9 +9,9 @@ services:
      environment:
        - GIT_EMAIL=till.witt@nxp.com
        - GIT_NAME=Till Witt
-       - MACHINE=imx6ulevk
-       - DISTRO=fsl-imx-x11
-       - IMAGE=core-image-base
+       - Y_MACHINE=imx6ulevk
+       - Y_DISTRO=fsl-imx-x11
+       - Y_IMAGE=core-image-base
      volumes:
        - ./data:/data
        - ./scripts:/scripts
