@@ -21,4 +21,9 @@ RUN echo ' ' >> /root/.bashrc && \
     echo 'export LANG=en_US.UTF-8' >> /root/.bashrc && \
     echo 'export LANGUAGE=en_US.UTF-8' >> /root/.bashrc
 
+WORKDIR /repo
+RUN git clone https://github.com/tlwt/yoctoDocker.git
+
 WORKDIR /data
+
+ENTRYPOINT /repo/yoctoDocker/scripts/startup.sh && /bin/bash

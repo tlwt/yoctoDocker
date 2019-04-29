@@ -1,0 +1,12 @@
+pipeline:
+  sonar-scanner:
+    image: tlwt/yoctodocker
+
+
+  slack: # pushing out notification
+    image: plugins/slack:latest
+    channel: build-automation
+    webhook: https://hooks.slack.com/services/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
+    when:
+      status: [ success, failure ]
+branches: master

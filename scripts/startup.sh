@@ -18,14 +18,14 @@ echo == initialising repository
 echo ===========================================================================
 cd /data
 # Step 1 - run once
-git config --global user.name "$GIT_NAME" && git config --global user.email "$GIT_EMAIL" && echo "N" | repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-rocko -m imx-4.9.88-2.0.0_ga.xml
+git config --global user.name "$GIT_NAME" && git config --global user.email "$GIT_EMAIL" && echo "N" | /root/bin/repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-rocko -m imx-4.9.88-2.0.0_ga.xml
 
 # Step 2- run once
 echo
 echo ===========================================================================
 echo == syncing repository
 echo ===========================================================================
-repo sync
+/root/bin/repo sync
 
 # Step 3- run once (choose from chapter 5.1)
 echo
