@@ -33,7 +33,7 @@ echo ===========================================================================
 echo == setting up release
 echo ===========================================================================
 
-DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build_$Y_MACHINE
+EULA=1 DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build_$Y_MACHINE
 
 # Accepting EULA
 #mkdir -p /data/build_$Y_MACHINE/conf/ && echo 'ACCEPT_FSL_EULA = "1"' >> /data/build_$Y_MACHINE/conf/local.conf
