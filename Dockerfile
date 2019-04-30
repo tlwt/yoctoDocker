@@ -30,4 +30,6 @@ WORKDIR /data
 RUN apt-get update -y && apt-get install -y npm && rm -rf /var/lib/apt/lists/*
 RUN npm install -g github-release-cli
 
+ADD . /repo/yoctoDocker/
+
 ENTRYPOINT /repo/yoctoDocker/scripts/startup.sh
