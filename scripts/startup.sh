@@ -72,11 +72,11 @@ d=$(date +%Y%m%d_%H%M%S)
 #Step 6 - create release
 releasename="img--$Y_DISTRO--$Y_MACHINE--$d.zip"
 echo $releasename
-zip "$releasename" /repo/yoctoDocker/data/build_$Y_MACHINE/tmp/deploy/images/*
+zip "$releasename" /data/build_$Y_MACHINE/tmp/deploy/images/*
 github-release upload \
   --owner tlwt \
   --repo yoctoDocker \
   --tag "$Y_DISTRO-$Y_MACHINE-$d" \
   --name "$Y_DISTRO - $Y_MACHINE ($d)" \
   --body "Yocto Build results" \
-"$releasename" "/repo/yoctoDocker/data/log_bake.txt" "/repo/yoctoDocker/data/log_setup.txt"
+"$releasename" "/data/log_bake.txt" "/data/log_setup.txt"
