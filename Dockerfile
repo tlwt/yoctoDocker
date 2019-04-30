@@ -26,4 +26,8 @@ RUN git clone https://github.com/tlwt/yoctoDocker.git
 
 WORKDIR /data
 
+#release management
+RUN apt-get update -y && apt-get install -y npm && rm -rf /var/lib/apt/lists/*
+RUN npm install -g github-release-cli
+
 ENTRYPOINT /repo/yoctoDocker/scripts/startup.sh && /bin/bash

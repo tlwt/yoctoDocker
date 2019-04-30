@@ -9,7 +9,9 @@ docker-compose build && docker-compose restart && docker exec -it yoctodocker_co
 * ```/scripts/*``` need to be made compatible with different releases
 
 
-Thanks to Jan & Nithin
+**Thanks to:**
+* Jan & Nithin
+* https://github.com/cheton/github-release-cli
 
 
 ## setup server
@@ -36,4 +38,11 @@ output is at
 
 ```
 /root/yoctoDocker/data/build_imx6ulevk/tmp/deploy/images/imx6ulevk
+```
+
+# deploying releases
+for github release to work the following environmental variable needs to be set.
+
+```
+export GITHUB_TOKEN=your_token
 ```

@@ -1,7 +1,7 @@
 pipeline:
-  sonar-scanner:
+  build:
     image: tlwt/yoctodocker
-
+    secrets: [ GITHUB_TOKEN ]
 
   slack: # pushing out notification
     image: plugins/slack:latest

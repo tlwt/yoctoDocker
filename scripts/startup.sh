@@ -35,9 +35,6 @@ echo ===========================================================================
 
 EULA=1 DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build_$Y_MACHINE
 
-# Accepting EULA
-#mkdir -p /data/build_$Y_MACHINE/conf/ && echo 'ACCEPT_FSL_EULA = "1"' >> /data/build_$Y_MACHINE/conf/local.conf
-
 #Step 3.b - for rebuild run without DISTRO
 #MACHINE=$MACHINE source fsl-setup-release.sh -b build_$MACHINE
 
@@ -47,3 +44,14 @@ sed -i 's/INHERIT += "sanity"/INHERIT += ""/g' /data/sources/poky/meta/conf/sani
 
 #Step 5 - choose project image (5.2)
 bitbake $Y_IMAGE
+
+d=$(date +%Y%m%d_%H%M%S)
+
+#Step 6 - create release
+github-release upload \
+  --owner tlwt \
+  --repo yoctoDocker \
+  --tag "$d" \
+  --name "$d" \
+  --body "Yocto Build results" \
+  /repo/yoctoDocker/data/build_imx6ulevk/tmp/deploy/images/*.*
