@@ -1,4 +1,5 @@
 pipeline:
+
   release:
     image: tlwt/yoctodocker
     secrets: [ GITHUB_TOKEN ]
@@ -9,6 +10,8 @@ pipeline:
        - Y_DISTRO=fsl-imx-x11
        - Y_IMAGE=core-image-base
     commands:
+       - pwd
+       - ls -la
        - d=$(date +%Y%m%d_%H%M%S)
        - releasename="img--$Y_DISTRO--$Y_MACHINE--$d.zip"
        - echo $releasename
