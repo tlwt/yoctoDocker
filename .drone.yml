@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: tlwt/yoctodocker
+    image: tlwt/yoctodocker:latest
     secrets: [ GITHUB_TOKEN ]
     environment:
        - GIT_EMAIL=till.witt@nxp.com
