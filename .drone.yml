@@ -1,13 +1,5 @@
 pipeline:
-  build:
-    image: tlwt/yoctodocker
-    secrets: [ GITHUB_TOKEN ]
-    environment:
-       - GIT_EMAIL=till.witt@nxp.com
-       - GIT_NAME=Till Witt
-       - Y_MACHINE=imx6ulevk
-       - Y_DISTRO=fsl-imx-x11
-       - Y_IMAGE=core-image-base
+
   release:
     image: tlwt/yoctodocker
     secrets: [ GITHUB_TOKEN ]
@@ -19,7 +11,12 @@ pipeline:
        - Y_IMAGE=core-image-base
     commands:
        - pwd
-       - ls -la
+       - ls ./data/
+       - ls ./data/build_imx6ulevk/
+       - ls ./data/build_imx6ulevk/tmp/
+       - ls ./data/build_imx6ulevk/tmp/deploy/
+       - ls ./data/build_imx6ulevk/tmp/deploy/images/
+       -
        - d=$(date +%Y%m%d_%H%M%S)
        - releasename="img--$Y_DISTRO--$Y_MACHINE--$d.zip"
        - echo $releasename
