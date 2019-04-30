@@ -52,7 +52,7 @@ echo ===========================================================================
 echo == bakerman is baking ...
 echo ===========================================================================
 #Step 5 - choose project image (5.2)
-bitbake $Y_IMAGE
+bitbake $Y_IMAGE > log.txt
 
 
 echo ===========================================================================
@@ -67,4 +67,4 @@ github-release upload \
   --tag "$d" \
   --name "$d" \
   --body "Yocto Build results" \
-  /repo/yoctoDocker/data/build_imx6ulevk/tmp/deploy/images/*.*
+/data/log.txt  /repo/yoctoDocker/data/build_imx6ulevk/tmp/deploy/images/*.*
