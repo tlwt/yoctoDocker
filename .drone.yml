@@ -1,10 +1,19 @@
 pipeline:
-
   release:
-    image: alpine
+    image: tlwt/yoctodocker
+    secrets: [ GITHUB_TOKEN ]
+    environment:
+       - GIT_EMAIL=till.witt@nxp.com
+       - GIT_NAME=Till Witt
+       - Y_MACHINE=imx6ulevk
+       - Y_DISTRO=fsl-imx-x11
+       - Y_IMAGE=core-image-base
     commands:
-      - pwd
-      - ls -la
+       - d=$(date +%Y%m%d_%H%M%S)
+       - releasename="img--$Y_DISTRO--$Y_MACHINE--$d.zip"
+       - echo $releasename
+       - zip "$releasename" /repo/yoctoDocker/data/build_$Y_MACHINE/tmp/deploy/images/*
+       - github-release upload --owner tlwt --repo yoctoDocker --tag "$Y_DISTRO-$Y_MACHINE-$d" --name "$Y_DISTRO - $Y_MACHINE ($d)" --body "Yocto Build results" "$releasename" "/repo/yoctoDocker/data/log_bake.txt" "/repo/yoctoDocker/data/log_setup.txt"
 
   slack: # pushing out notification
     image: plugins/slack:latest
