@@ -33,7 +33,7 @@ echo ===========================================================================
 echo == setting up release
 echo ===========================================================================
 
-EULA=1 DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build_$Y_MACHINE
+EULA=1 DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build_$Y_MACHINE  > log_setup.txt 2>&1
 
 #Step 3.b - for rebuild run without DISTRO
 #MACHINE=$MACHINE source fsl-setup-release.sh -b build_$MACHINE
@@ -52,7 +52,7 @@ echo ===========================================================================
 echo == bakerman is baking ...
 echo ===========================================================================
 #Step 5 - choose project image (5.2)
-bitbake $Y_IMAGE > log.txt 2>&1
+bitbake $Y_IMAGE > log_bake.txt 2>&1
 
 
 echo ===========================================================================
@@ -67,4 +67,4 @@ github-release upload \
   --tag "$d" \
   --name "$d" \
   --body "Yocto Build results" \
-/data/log.txt  /repo/yoctoDocker/data/build_imx6ulevk/tmp/deploy/images/*.*
+"/data/log_setup.txt" "/data/log_bake.txt"  "/repo/yoctoDocker/data/build_imx6ulevk/tmp/deploy/images/*.*"
