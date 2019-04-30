@@ -39,14 +39,27 @@ EULA=1 DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build_
 #MACHINE=$MACHINE source fsl-setup-release.sh -b build_$MACHINE
 
 # Step 4 check conf folders
+echo
+echo ===========================================================================
+echo == who needs sanity
+echo ===========================================================================
 
 sed -i 's/INHERIT += "sanity"/INHERIT += ""/g' /data/sources/poky/meta/conf/sanity.conf
 
+
+echo
+echo ===========================================================================
+echo == bakerman is baking ...
+echo ===========================================================================
 #Step 5 - choose project image (5.2)
 bitbake $Y_IMAGE
 
-d=$(date +%Y%m%d_%H%M%S)
 
+echo ===========================================================================
+echo == release
+echo ===========================================================================
+
+d=$(date +%Y%m%d_%H%M%S)
 #Step 6 - create release
 github-release upload \
   --owner tlwt \
