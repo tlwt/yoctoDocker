@@ -1,5 +1,13 @@
 pipeline:
-
+  build:
+    image: tlwt/yoctodocker
+    secrets: [ GITHUB_TOKEN ]
+    environment:
+       - GIT_EMAIL=till.witt@nxp.com
+       - GIT_NAME=Till Witt
+       - Y_MACHINE=imx6ulevk
+       - Y_DISTRO=fsl-imx-x11
+       - Y_IMAGE=core-image-base
   release:
     image: tlwt/yoctodocker
     secrets: [ GITHUB_TOKEN ]
