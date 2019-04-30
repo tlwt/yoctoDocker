@@ -3,7 +3,8 @@
 echo ===========================================================================
 echo ==
 echo == Dockerized yocto builder
-echo == maintained by Till Witt - till.witt@nxp.com
+echo == maintained by Till Witt
+echo == Version 0.01
 echo ==
 echo == User: $GIT_NAME
 echo == Mail: $GIT_EMAIL
@@ -12,14 +13,6 @@ echo == Distro: $Y_DISTRO
 echo == Machine: $Y_MACHINE
 echo ==
 echo ===========================================================================
-
-echo
-echo ===========================================================================
-echo == updating work scripts
-echo ===========================================================================
-cd /repo/yoctoDocker
-git pull
-
 
 echo
 echo ===========================================================================
