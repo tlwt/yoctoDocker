@@ -35,7 +35,7 @@ echo ===========================================================================
 echo == setting up release
 echo ===========================================================================
 
-EULA=1 DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build_$Y_MACHINE  > /repo/yoctoDocker/data/log_setup.txt 2>&1
+EULA=1 DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build_$Y_MACHINE  > /data/log_setup.txt 2>&1
 
 #Step 3.b - for rebuild run without DISTRO
 #MACHINE=$MACHINE source fsl-setup-release.sh -b build_$MACHINE
@@ -54,7 +54,7 @@ echo ===========================================================================
 echo == bakerman is baking ...
 echo ===========================================================================
 #Step 5 - choose project image (5.2)
-bitbake $Y_IMAGE > /repo/yoctoDocker/data/log_bake.txt 2>&1
+bitbake $Y_IMAGE > /data/log_bake.txt 2>&1
 
 
 echo ===========================================================================
@@ -65,7 +65,7 @@ d=$(date +%Y%m%d_%H%M%S)
 #Step 6 - create release
 releasename="img--$Y_DISTRO--$Y_MACHINE--$d.zip"
 echo $releasename
-zip "$releasename" /data/build_$Y_MACHINE/tmp/deploy/images/*
+zip "$releasename" "/data/build_$Y_MACHINE/tmp/deploy/images/*"
 github-release upload \
   --owner tlwt \
   --repo yoctoDocker \
