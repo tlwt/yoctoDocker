@@ -4,7 +4,7 @@ echo ===========================================================================
 echo ==
 echo == Dockerized yocto builder
 echo == maintained by Till Witt
-echo == Version 0.01
+echo == Version 0.03
 echo ==
 echo == User: $GIT_NAME
 echo == Mail: $GIT_EMAIL
@@ -62,6 +62,14 @@ echo == release
 echo ===========================================================================
 
 d=$(date +%Y%m%d_%H%M%S)
+
+ls /data
+ls /data/build_$Y_MACHINE/
+ls /data/build_$Y_MACHINE/tmp/
+ls /data/build_$Y_MACHINE/tmp/deploy/
+ls /data/build_$Y_MACHINE/tmp/deploy/images/
+
+
 #Step 6 - create release
 releasename="img--$Y_DISTRO--$Y_MACHINE--$d.zip"
 echo $releasename
