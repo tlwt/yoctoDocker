@@ -1,12 +1,13 @@
 pipeline:
+
   build:
     image: tlwt/yoctodocker:latest
     secrets: [ GITHUB_TOKEN ]
     environment:
        - GIT_EMAIL=till.witt@nxp.com
        - GIT_NAME=Till Witt
-       - Y_MACHINE=${machine}
-       - Y_DISTRO==${distro}
+       - Y_MACHINE=imx6ulevk
+       - Y_DISTRO=fsl-imx-x11
        - Y_IMAGE=core-image-base
 
   slack: # pushing out notification
@@ -16,10 +17,3 @@ pipeline:
     when:
       status: [ success, failure ]
 branches: master
-
-matrix:
-  machine:
-    - imx6ulevk
-    - imx6ull14x14evk
-  distro:
-    - fsl-imx-x11
