@@ -4,7 +4,7 @@ echo ===========================================================================
 echo ==
 echo == Dockerized yocto builder
 echo == maintained by Till Witt
-echo == Version 0.03
+echo == Version 0.04
 echo ==
 echo == User: $GIT_NAME
 echo == Mail: $GIT_EMAIL
@@ -27,7 +27,12 @@ echo
 echo ===========================================================================
 echo == syncing repository
 echo ===========================================================================
-/root/bin/repo sync
+if [ -z "$disable_sync" ]
+  then
+    /root/bin/repo sync
+  else
+    echo syncing repository disabled
+fi
 
 # Step 3- run once (choose from chapter 5.1)
 echo
@@ -35,7 +40,12 @@ echo ===========================================================================
 echo == setting up release
 echo ===========================================================================
 
-EULA=1 DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build_$Y_MACHINE  > /data/log_setup.txt 2>&1
+if [ -z "$disable_setup" ]
+  then
+    EULA=1 DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build_$Y_MACHINE  > /data/log_setup.txt 2>&1
+  else
+    echo setup up release disabled
+fi
 
 #Step 3.b - for rebuild run without DISTRO
 #MACHINE=$MACHINE source fsl-setup-release.sh -b build_$MACHINE
@@ -54,30 +64,34 @@ echo ===========================================================================
 echo == bakerman is baking ...
 echo ===========================================================================
 #Step 5 - choose project image (5.2)
-bitbake $Y_IMAGE > /data/log_bake.txt 2>&1
+if [ -z "$disable_bake" ]
+  then
+    bitbake $Y_IMAGE > /data/log_bake.txt 2>&1
+  else
+    echo bake disabled
+fi
+
 
 
 echo ===========================================================================
 echo == release
 echo ===========================================================================
+if [ -z "$disable_release" ]
+  then
 
-d=$(date +%Y%m%d_%H%M%S)
+    d=$(date +%Y%m%d_%H%M%S)
 
-ls /data
-ls /data/build_$Y_MACHINE/
-ls /data/build_$Y_MACHINE/tmp/
-ls /data/build_$Y_MACHINE/tmp/deploy/
-ls /data/build_$Y_MACHINE/tmp/deploy/images/
-
-
-#Step 6 - create release
-releasename="img--$Y_DISTRO--$Y_MACHINE--$d.zip"
-echo $releasename
-zip "$releasename" "/data/build_$Y_MACHINE/tmp/deploy/images/*"
-github-release upload \
-  --owner tlwt \
-  --repo yoctoDocker \
-  --tag "$Y_DISTRO-$Y_MACHINE-$d" \
-  --name "$Y_DISTRO - $Y_MACHINE ($d)" \
-  --body "Yocto Build results" \
-"$releasename" "/data/log_bake.txt" "/data/log_setup.txt"
+    #Step 6 - create release
+    releasename="img--$Y_DISTRO--$Y_MACHINE--$d.zip"
+    echo $releasename
+    zip -r "$releasename" /data/build_$Y_MACHINE/tmp/deploy/images/*
+    github-release upload \
+      --owner tlwt \
+      --repo yoctoDocker \
+      --tag "$Y_DISTRO-$Y_MACHINE-$d" \
+      --name "$Y_DISTRO - $Y_MACHINE ($d)" \
+      --body "Yocto Build results" \
+    "$releasename" "/data/log_bake.txt" "/data/log_setup.txt"
+  else
+    echo disable release
+fi
