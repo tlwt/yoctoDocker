@@ -7,6 +7,8 @@ This is a dockerized build environment for Yocto images to run on i.MX boards fo
 
 The scripts / dockerized setup in this repository are open source. Please make yourself familiar with the build results (images) corresponding licenses. The build images are available within the release section.
 
+A lot is based on the [i.MX Yocto Project User's Guide Linux](https://www.nxp.com/docs/en/user-guide/i.MX_Yocto_Project_User's_Guide_Linux.pdf): 
+
 
 ## How to get the image on an i.MX board
 1. The release section contains a zip file with an `Distro` (e.g. fsl-imx-x11)
