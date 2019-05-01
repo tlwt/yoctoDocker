@@ -1,4 +1,12 @@
 pipeline:
+  sonar-scanner:
+    image: aosapps/drone-sonar-plugin
+    secrets: [sonar_host, sonar_token]
+    sources: iMXDemo
+    when:
+      event:
+        - push
+        - pull_request  
   build:
     image: tlwt/yoctodocker:latest
     secrets: [ GITHUB_TOKEN ]
