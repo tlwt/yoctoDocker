@@ -90,8 +90,8 @@ if [ -z "$disable_release" ]
       --repo yoctoDocker \
       --tag "$Y_DISTRO-$Y_MACHINE-$d" \
       --name "$Y_DISTRO - $Y_MACHINE ($d)" \
-      --body "Yocto Build results" \
-    "$releasename" "/data/log_bake.txt" "/data/log_setup.txt"
+      --body "Yocto Build results - EULA of build components applies" \
+    "$releasename" "/data/log_bake.txt" "/data/log_setup.txt" "/data/sources/meta-freescale/EULA"
   else
     echo disable release
 fi
