@@ -24,7 +24,7 @@ From experience, the sd card device usually shows up as /dev/mmcblk0, at least
 in modern Ubuntu.
 
 ### Thanks to
-Without the my colleagues Ahmad, Jan & Nithin the results I would not have been able to set this up.
+Only due to my colleagues Ahmad, Jan & Nithin I was able to set this build up.
 
 To manage the GITHUB releases the https://github.com/cheton/github-release-cli tool is used.
 
