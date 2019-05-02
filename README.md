@@ -1,6 +1,6 @@
 # Yocto compiler for iMX boards
 
-[![Build Status](https://cloud.drone.io/api/badges/tlwt/yoctoDocker/status.svg)](https://cloud.drone.io/tlwt/yoctoDocker)
+[![Build Status](https://cloud.drone.io/api/badges/tlwt/yoctoDocker/status.svg)](https://cloud.drone.io/tlwt/yoctoDocker) [![](https://images.microbadger.com/badges/image/tlwt/yoctodocker.svg)](https://microbadger.com/images/tlwt/yoctodocker "Get your own image badge on microbadger.com")
 
 
 This is a dockerized build environment for Yocto images to run on i.MX boards for NXP. The environment supports publishing to GITHUB releases.
