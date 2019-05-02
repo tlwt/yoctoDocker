@@ -12,4 +12,4 @@ cd yoctoDocker
 docker-compose up &
 
 #connect to container
-docker exec -it yoctodocker_compiler_1 /bin/bash
+#docker exec -it yoctodocker_compiler_1 /bin/bash

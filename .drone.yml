@@ -4,7 +4,7 @@ pipeline:
     image: tlwt/yoctodocker:latest
     secrets: [ GITHUB_TOKEN ]
     environment:
-       - GIT_EMAIL=till.witt@nxp.com
+       - GIT_EMAIL=mail@tillwitt.de
        - GIT_NAME=Till Witt
        - Y_MACHINE=imx6ulevk
        - Y_DISTRO=fsl-imx-x11
