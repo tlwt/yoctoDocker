@@ -6,11 +6,17 @@ services:
      stdin_open: true
      tty: true
      environment:
-       - GIT_EMAIL=till.witt@nxp.com
-       - GIT_NAME=Till Witt
+       - GIT_EMAIL=<your mail>
+       - GIT_NAME=<your name>
        - Y_MACHINE=imx6ulevk
        - Y_DISTRO=fsl-imx-x11
        - Y_IMAGE=core-image-base
-     volumes:
-       - ./data:/data
-       - ./:/repo/yoctoDocker
+       - GITHUB_TOKEN=<secret your key>
+#       - disable_sync=1
+#       - disable_setup=1
+#       - disable_bake=1
+#     volumes:
+#       - ./data:/data
+#       - ./:/repo/yoctoDocker
+#     entrypoint:
+#      - /bin/bash
