@@ -7,7 +7,7 @@ This is a dockerized build environment for Yocto images to run on i.MX boards fo
 
 The scripts / dockerized setup in this repository are open source. Please make yourself familiar with the build results (images) corresponding licenses. The build images are available within the release section.
 
-A lot is based on the [i.MX Yocto Project User's Guide Linux](https://www.nxp.com/docs/en/user-guide/i.MX_Yocto_Project_User's_Guide_Linux.pdf): 
+A lot is based on the [i.MX Yocto Project User's Guide Linux](https://www.nxp.com/docs/en/user-guide/i.MX_Yocto_Project_User's_Guide_Linux.pdf):
 
 
 ## How to get the image on an i.MX board
@@ -29,10 +29,7 @@ Without the my colleagues Ahmad, Jan & Nithin the results I would not have been 
 To manage the GITHUB releases the https://github.com/cheton/github-release-cli tool is used.
 
 ### Todos
-* increase the build configuration via environmental variables
-* make sure the current build scripts are pulled from github without the entire image being regenerated.
-* setup readthedocs
-* docker hub build process should only be started when relevant changes to the sources come.
+Look at https://github.com/tlwt/yoctoDocker/issues/ to find out how to help / whats still open.
 
 
 -----
