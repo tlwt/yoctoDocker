@@ -39,10 +39,6 @@ if [ "1" != "$disable_sync" ]
     echo syncing repository disabled
 fi
 
-## custom build addition
-/bin/cp -R /drone/custombuild/config/* /data/build/conf/
-/bin/cp -R /drone/custombuild/sources/* /data/sources/
-
 
 # Step 3- run once (choose from chapter 5.1)
 echo
@@ -59,6 +55,17 @@ fi
 
 #Step 3.b - for rebuild run without DISTRO
 #MACHINE=$MACHINE source fsl-setup-release.sh -b build_$MACHINE
+
+
+## custom build addition
+echo
+echo ===========================================================================
+echo == copying custom build options and sources
+echo ===========================================================================
+/bin/cp -R /drone/custombuild/config/* /data/build/conf/
+/bin/cp -R /drone/custombuild/sources/* /data/sources/
+
+
 
 # Step 4 check conf folders
 echo
