@@ -4,7 +4,7 @@ echo ===========================================================================
 echo ==
 echo == Dockerized yocto builder
 echo == maintained by Till Witt
-echo == Version 0.05
+echo == Version 0.06
 echo ==
 echo == User: $GIT_NAME
 echo == Mail: $GIT_EMAIL
@@ -13,6 +13,11 @@ echo == Distro: $Y_DISTRO
 echo == Machine: $Y_MACHINE
 echo ==
 echo ===========================================================================
+
+echo == git repo latest commit
+git -C /repo/yoctoDocker log -1 --format=%cd
+
+
 
 echo
 echo ===========================================================================
