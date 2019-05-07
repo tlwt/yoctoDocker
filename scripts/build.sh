@@ -78,16 +78,31 @@ echo == release
 echo ===========================================================================
 if [ -z "$disable_release" ]
   then
-
-    d=$(date +%Y%m%d_%H%M%S)
-
     #Step 6 - create release
+    d=$(date +%Y%m%d_%H%M%S)
     releasename="img--$Y_DISTRO--$Y_MACHINE--$d.zip"
     echo $releasename
     zip -r "$releasename" /data/build_$Y_MACHINE/tmp/deploy/images/*
+
+    # making sure the files exist
+    if [ ! -f /data/log_bake.txt ]; then
+        mkdir -p /data
+        echo "log setup was not created during build process!" > "/data/log_bake.txt"
+    fi
+    if [ ! -f /data/log_setup.txt ]; then
+        echo "log setup was not created during build process!" > "/data/log_setup.txt"
+    fi
+    if [ ! -f /data/sources/meta-freescale/EULA ]; then
+        mkdir -p /data/sources/meta-freescale/
+        echo "EULA was not created during build process!" > "/data/sources/meta-freescale/EULA"
+    fi
+    if [ ! -f "$releasename" ]; then
+        echo "$releasename was not created during build process!" > $releasename
+    fi
+    # upload to github
     github-release upload \
-      --owner tlwt \
-      --repo yoctoDocker \
+      --owner $GITHUB_USER \
+      --repo $GITHUB_REPO \
       --tag "$Y_DISTRO-$Y_MACHINE-$d" \
       --name "$Y_DISTRO - $Y_MACHINE ($d)" \
       --body "Yocto Build results - EULA of build components applies" \
