@@ -1,14 +1,14 @@
 pipeline:
 
-  build:
-    image: tlwt/yoctodocker:latest
-    secrets: [ GITHUB_TOKEN ]
-    environment:
-       - GIT_EMAIL=mail@tillwitt.de
-       - GIT_NAME=Till Witt
-       - Y_MACHINE=imx6ulevk
-       - Y_DISTRO=fsl-imx-x11
-       - Y_IMAGE=core-image-base
+#  build:
+#    image: tlwt/yoctodocker:v1.0
+#    secrets: [ GITHUB_TOKEN ]
+#    environment:
+#       - GIT_EMAIL=mail@tillwitt.de
+#       - GIT_NAME=Till Witt
+#       - Y_MACHINE=imx6ulevk
+#       - Y_DISTRO=fsl-imx-x11
+#       - Y_IMAGE=core-image-base
 
   slack: # pushing out notification
     image: plugins/slack:latest
