@@ -47,7 +47,7 @@ echo ===========================================================================
 
 if [ "1" != "$disable_setup" ]
   then
-    EULA=1 DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build_$Y_MACHINE  > /data/log_setup.txt 2>&1
+    EULA=1 DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build  > /data/log_setup.txt 2>&1
   else
     echo setup up release disabled
 fi
@@ -87,7 +87,7 @@ if [ "1" != "$disable_release" ]
     d=$(date +%Y%m%d_%H%M%S)
     releasename="img--$Y_DISTRO--$Y_MACHINE--$d.zip"
     echo $releasename
-    zip -r "$releasename" /data/build_$Y_MACHINE/tmp/deploy/images/*
+    zip -r "$releasename" /data/build/tmp/deploy/images/*
 
     # making sure the files exist
     if [ ! -f /data/log_bake.txt ]; then
