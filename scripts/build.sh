@@ -32,7 +32,7 @@ echo
 echo ===========================================================================
 echo == syncing repository
 echo ===========================================================================
-if [ "1" == "$disable_sync" ]
+if [ "1" != "$disable_sync" ]
   then
     /root/bin/repo sync
   else
@@ -45,7 +45,7 @@ echo ===========================================================================
 echo == setting up release
 echo ===========================================================================
 
-if [ "1" == "$disable_setup" ]
+if [ "1" != "$disable_setup" ]
   then
     EULA=1 DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build_$Y_MACHINE  > /data/log_setup.txt 2>&1
   else
@@ -69,7 +69,7 @@ echo ===========================================================================
 echo == bakerman is baking ...
 echo ===========================================================================
 #Step 5 - choose project image (5.2)
-if [ "1" == "$disable_bake" ]
+if [ "1" != "$disable_bake" ]
   then
     bitbake $Y_IMAGE > /data/log_bake.txt 2>&1
   else
@@ -81,7 +81,7 @@ fi
 echo ===========================================================================
 echo == release
 echo ===========================================================================
-if [ "1" == "$disable_release" ]
+if [ "1" != "$disable_release" ]
   then
     #Step 6 - create release
     d=$(date +%Y%m%d_%H%M%S)
