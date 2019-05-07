@@ -39,6 +39,11 @@ if [ "1" != "$disable_sync" ]
     echo syncing repository disabled
 fi
 
+## custom build addition
+/bin/cp -R /drone/custombuild/config/* /data/build/conf/
+/bin/cp -R /drone/custombuild/sources/* /data/sources/
+
+
 # Step 3- run once (choose from chapter 5.1)
 echo
 echo ===========================================================================
