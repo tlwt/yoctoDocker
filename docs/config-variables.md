@@ -1,4 +1,4 @@
-## environment variables
+# environment variables
 
 the following environmental variables need to be set in order for the build process to work:
 
