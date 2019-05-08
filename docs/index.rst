@@ -7,4 +7,5 @@ Documents
 .. toctree::
    :maxdepth: 16
 
+   setup-bare-metal
    yocto-docker-build-guide
