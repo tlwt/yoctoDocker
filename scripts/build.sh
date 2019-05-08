@@ -65,6 +65,21 @@ echo ===========================================================================
 /bin/cp -R /drone/custombuild/config/* /data/build/conf/
 /bin/cp -R /drone/custombuild/sources/* /data/sources/
 
+echo = repo config content
+ls /drone/custombuild/config/
+
+echo =
+echo = target config content
+ls /data/build/conf/
+
+echo =
+echo = repo sources content
+ls /drone/custombuild/sources/
+
+echo =
+echo = target sources content
+ls /data/sources/
+
 
 
 # Step 4 check conf folders
