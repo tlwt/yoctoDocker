@@ -72,8 +72,8 @@ echo = pre-copy target sources content
 mkdir -p /data/sources/
 ls -la /data/sources/
 
-/bin/cp -R /drone/custombuild/config/* /data/build/conf/
-/bin/cp -R /drone/custombuild/sources/* /data/sources/
+yes | cp -rf /drone/custombuild/config/* /data/build/conf/
+yes | cp -rf /drone/custombuild/sources/* /data/sources/
 
 echo ======
 echo = repo config content
