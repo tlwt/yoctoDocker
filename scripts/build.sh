@@ -64,30 +64,30 @@ echo == copying custom build options and sources
 echo ===========================================================================
 echo =
 echo = pre-copy target config content
-ls -R /data/build/conf/
+ls -la /data/build/conf/
 
 echo =
 echo = pre-copy target sources content
-ls -R /data/sources/
+ls -la /data/sources/
 
 /bin/cp -R /drone/custombuild/config/* /data/build/conf/
 /bin/cp -R /drone/custombuild/sources/* /data/sources/
 
 echo ======
 echo = repo config content
-ls -R /drone/custombuild/config/
+ls -la /drone/custombuild/config/
 
 echo =
 echo = target config content
-ls -R /data/build/conf/
+ls -la /data/build/conf/
 
 echo =
 echo = repo sources content
-ls -R /drone/custombuild/sources/
+ls -la /drone/custombuild/sources/
 
 echo =
 echo = target sources content
-ls -R /data/sources/
+ls -la /data/sources/
 
 
 
