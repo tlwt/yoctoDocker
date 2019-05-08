@@ -8,4 +8,6 @@ Documents
    :maxdepth: 16
 
    setup-bare-metal
-   yocto-docker-build-guide
+   setup-imx
+   setup-local-build
+   config-variables
