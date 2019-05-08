@@ -9,4 +9,5 @@ This document contains information on how to use the dockerized build setup for 
    setup-bare-metal
    setup-imx
    setup-local-build
+   setup-cloud-build
    config-variables
