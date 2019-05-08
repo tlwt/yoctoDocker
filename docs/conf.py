@@ -11,4 +11,4 @@ latex_elements = {
 source_suffix = ['.rst', '.md']
 
 master_doc = 'index'
-project = u'yocto-docker-build-guide'
+project = u'Dockerized build environment for yocto based i.MX images'
