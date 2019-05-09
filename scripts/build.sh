@@ -18,6 +18,16 @@ echo == git repo latest commit
 git -C /repo/yoctoDocker log -1 --format=%cd
 
 
+## custom build step
+CUSTOMSTEP=/drone/custombuild/scripts/step01.sh
+if [ ! -f $CUSTOMSTEP ]; then
+      echo = no custom script: $CUSTOMSTEP
+    else
+      echo = running: $CUSTOMSTEP
+      chmod 755 $CUSTOMSTEP
+      eval $CUSTOMSTEP
+fi
+
 
 echo
 echo ===========================================================================
@@ -26,6 +36,18 @@ echo ===========================================================================
 cd /data
 # Step 1 - run once
 git config --global user.name "$GIT_NAME" && git config --global user.email "$GIT_EMAIL" && echo "N" | /root/bin/repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-rocko -m imx-4.9.88-2.0.0_ga.xml
+
+
+## custom build step
+CUSTOMSTEP=/drone/custombuild/scripts/step02.sh
+if [ ! -f $CUSTOMSTEP ]; then
+      echo = no custom script: $CUSTOMSTEP
+    else
+      echo = running: $CUSTOMSTEP
+      chmod 755 $CUSTOMSTEP
+      eval $CUSTOMSTEP
+fi
+
 
 # Step 2- run once
 echo
@@ -59,6 +81,8 @@ chmod -R 777 /data/build/conf/
 yes | cp -rf /drone/custombuild/sources/* /data/sources/
 chmod -R 777 /data/sources/
 
+
+## custom build step
 CUSTOMSTEP=/drone/custombuild/scripts/step03.sh
 if [ ! -f $CUSTOMSTEP ]; then
       echo = no custom script: $CUSTOMSTEP
@@ -86,6 +110,16 @@ fi
 #Step 3.b - for rebuild run without DISTRO
 #MACHINE=$MACHINE source fsl-setup-release.sh -b build_$MACHINE
 
+## custom build step
+CUSTOMSTEP=/drone/custombuild/scripts/step04.sh
+if [ ! -f $CUSTOMSTEP ]; then
+      echo = no custom script: $CUSTOMSTEP
+    else
+      echo = running: $CUSTOMSTEP
+      chmod 755 $CUSTOMSTEP
+      eval $CUSTOMSTEP
+fi
+
 
 # Step 4 check conf folders
 echo
@@ -108,6 +142,16 @@ if [ "1" != "$disable_bake" ]
     echo bake disabled
 fi
 
+
+## custom build step
+CUSTOMSTEP=/drone/custombuild/scripts/step05.sh
+if [ ! -f $CUSTOMSTEP ]; then
+      echo = no custom script: $CUSTOMSTEP
+    else
+      echo = running: $CUSTOMSTEP
+      chmod 755 $CUSTOMSTEP
+      eval $CUSTOMSTEP
+fi
 
 
 echo ===========================================================================
