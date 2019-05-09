@@ -4,13 +4,18 @@ echo ===========================================================================
 echo ==
 echo == Dockerized yocto builder
 echo == maintained by Till Witt
-echo == Version 0.07
+echo == Version 0.08
 echo ==
 echo == User: $GIT_NAME
 echo == Mail: $GIT_EMAIL
 echo ==
 echo == Distro: $Y_DISTRO
 echo == Machine: $Y_MACHINE
+echo ==
+echo == disable_bake    = $disable_bake
+echo == disable_sync    = $disable_sync
+echo == disable_setup   = $disable_setup
+echo == disable_release = $disable_release
 echo ==
 echo ===========================================================================
 
