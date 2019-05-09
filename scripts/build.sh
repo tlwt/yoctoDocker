@@ -39,24 +39,6 @@ if [ "1" != "$disable_sync" ]
     echo syncing repository disabled
 fi
 
-
-
-# Step 3- run once (choose from chapter 5.1)
-echo
-echo ===========================================================================
-echo == setting up release
-echo ===========================================================================
-
-if [ "1" != "$disable_setup" ]
-  then
-    EULA=1 DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build  > /data/log_setup.txt 2>&1
-  else
-    echo setup up release disabled
-fi
-
-#Step 3.b - for rebuild run without DISTRO
-#MACHINE=$MACHINE source fsl-setup-release.sh -b build_$MACHINE
-
 ## custom build addition
 echo
 echo ===========================================================================
@@ -73,7 +55,10 @@ mkdir -p /data/sources/
 ls -la /data/sources/
 
 yes | cp -rf /drone/custombuild/config/* /data/build/conf/
+chmod -R 777 /data/build/conf/
 yes | cp -rf /drone/custombuild/sources/* /data/sources/
+chmod -R 777 /data/sources/
+
 
 echo ======
 echo = repo config content
@@ -91,6 +76,22 @@ echo =
 echo = target sources content
 ls -la /data/sources/
 
+
+# Step 3- run once (choose from chapter 5.1)
+echo
+echo ===========================================================================
+echo == setting up release
+echo ===========================================================================
+
+if [ "1" != "$disable_setup" ]
+  then
+    EULA=1 DISTRO=$Y_DISTRO MACHINE=$Y_MACHINE source fsl-setup-release.sh -b build  > /data/log_setup.txt 2>&1
+  else
+    echo setup up release disabled
+fi
+
+#Step 3.b - for rebuild run without DISTRO
+#MACHINE=$MACHINE source fsl-setup-release.sh -b build_$MACHINE
 
 
 # Step 4 check conf folders
