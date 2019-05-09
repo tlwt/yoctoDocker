@@ -59,22 +59,13 @@ chmod -R 777 /data/build/conf/
 yes | cp -rf /drone/custombuild/sources/* /data/sources/
 chmod -R 777 /data/sources/
 
+if [ ! -f /data/custombild/scripts/step03.sh ]; then
+      echo = no custom script to execute
+    else
+      echo = running custom step 03
+      /data/custombild/scripts/step03.sh
+fi
 
-echo ======
-echo = repo config content
-ls -la /drone/custombuild/config/
-
-echo =
-echo = target config content
-ls -la /data/build/conf/
-
-echo =
-echo = repo sources content
-ls -la /drone/custombuild/sources/
-
-echo =
-echo = target sources content
-ls -la /data/sources/
 
 
 # Step 3- run once (choose from chapter 5.1)
