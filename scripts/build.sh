@@ -59,11 +59,11 @@ chmod -R 777 /data/build/conf/
 yes | cp -rf /drone/custombuild/sources/* /data/sources/
 chmod -R 777 /data/sources/
 
-if [ ! -f /data/custombuild/scripts/step03.sh ]; then
+if [ ! -f /drone/custombuild/scripts/step03.sh ]; then
       echo = no custom script to execute
     else
       echo = running custom step 03
-      /data/custombuild/scripts/step03.sh
+      /drone/custombuild/scripts/step03.sh
 fi
 
 
