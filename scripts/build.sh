@@ -4,7 +4,7 @@ echo ===========================================================================
 echo ==
 echo == Dockerized yocto builder
 echo == maintained by Till Witt
-echo == Version 0.06
+echo == Version 0.07
 echo ==
 echo == User: $GIT_NAME
 echo == Mail: $GIT_EMAIL
@@ -59,11 +59,11 @@ chmod -R 777 /data/build/conf/
 yes | cp -rf /drone/custombuild/sources/* /data/sources/
 chmod -R 777 /data/sources/
 
-if [ ! -f /data/custombild/scripts/step03.sh ]; then
+if [ ! -f /data/custombuild/scripts/step03.sh ]; then
       echo = no custom script to execute
     else
       echo = running custom step 03
-      /data/custombild/scripts/step03.sh
+      /data/custombuild/scripts/step03.sh
 fi
 
 
