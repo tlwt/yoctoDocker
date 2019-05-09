@@ -63,6 +63,7 @@ if [ ! -f /drone/custombuild/scripts/step03.sh ]; then
       echo = no custom script to execute
     else
       echo = running custom step 03
+      chmod 755 /drone/custombuild/scripts/step03.sh
       /drone/custombuild/scripts/step03.sh
 fi
 
