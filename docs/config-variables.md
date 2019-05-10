@@ -1,4 +1,4 @@
-# environment variables
+# Config variables
 
 the following environmental variables need to be set in order for the build process to work:
 
@@ -27,4 +27,5 @@ For debugging purpose you want to use the following variables to speed up the en
 - disable_sync=1
 - disable_setup=1
 - disable_bake=1
+- disable_release=1
 ```

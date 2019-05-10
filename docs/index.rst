@@ -13,3 +13,5 @@ This document contains information on how to use the dockerized build setup for 
    setup-imx
    setup-local-build
    config-variables
+   docker-architecture
+   yocto-build-process
