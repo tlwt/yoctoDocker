@@ -42,7 +42,7 @@ echo == initialising repository
 echo ===========================================================================
 cd /data
 # Step 1 - run once
-git config --global user.name "$GIT_NAME" && git config --global user.email "$GIT_EMAIL" && echo "N" | /root/bin/repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-rocko -m imx-4.9.88-2.0.0_ga.xml
+git config --global user.name "$GIT_NAME" && git config --global user.email "$GIT_EMAIL" && echo "N" | /home/appuser/bin/repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-rocko -m imx-4.9.88-2.0.0_ga.xml
 
 
 ## custom build step
@@ -63,7 +63,7 @@ echo == syncing repository
 echo ===========================================================================
 if [ "1" != "$disable_sync" ]
   then
-    /root/bin/repo sync
+    /home/appuser/bin/repo sync
   else
     echo syncing repository disabled
 fi
