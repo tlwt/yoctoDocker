@@ -4,7 +4,7 @@ echo ===========================================================================
 echo ==
 echo == Dockerized yocto builder
 echo == maintained by Till Witt
-echo == Version 0.08
+echo == Version 0.09
 echo ==
 echo == User: $GIT_NAME
 echo == Mail: $GIT_EMAIL
@@ -16,6 +16,8 @@ echo == disable_bake    = $disable_bake
 echo == disable_sync    = $disable_sync
 echo == disable_setup   = $disable_setup
 echo == disable_release = $disable_release
+echo ==
+echo == FORCE_UNSAFE_CONFIGURE = $FORCE_UNSAFE_CONFIGURE
 echo ==
 echo ===========================================================================
 
