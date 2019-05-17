@@ -1,4 +1,4 @@
-# How to setup bare metal
+# Setup bare metal
 
 a bare metal build system only requires an up-to-date ubuntu with docker & docker-compose installed.
 This can be achieved by executing these or similar commands:
