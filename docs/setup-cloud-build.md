@@ -27,7 +27,7 @@ Drone is the build automation we chose to fetch your source code and build it us
 
 `.drone.yml` contains the build step and configuration settings required for the build.
 
-```yml
+```yaml
 workspace:
   base: /drone
   path: /custombuild
