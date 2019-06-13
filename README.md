@@ -12,6 +12,8 @@ A lot is based on the [i.MX Yocto Project User's Guide Linux](https://www.nxp.co
 
 The full documentation is available at: https://yoctodocker.rtfd.io
 
+Build will be automatically triggered unless `[CI SKIP]` is written in the commit message
+
 
 ### Thanks to
 Only due to my colleagues Ahmad, Jan & Nithin I was able to set this build up.
@@ -20,3 +22,6 @@ To manage the GITHUB releases the https://github.com/cheton/github-release-cli t
 
 ### Todos
 Look at https://github.com/tlwt/yoctoDocker/issues/ to find out how to help / whats still open.
+
+### i.MX builds using this image
+* https://github.com/tlwt/imx-x11-imx6ulevk
