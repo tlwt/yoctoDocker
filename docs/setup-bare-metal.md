@@ -7,3 +7,8 @@ This can be achieved by executing these or similar commands:
 apt-get update -y && apt-get upgrade -y
 apt-get install -y docker.io docker-compose
 ```
+
+or
+```bash
+wget -O - https://raw.githubusercontent.com/tlwt/yoctoDocker/master/scripts/setupBaremetal.sh | bash
+```
