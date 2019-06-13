@@ -17,6 +17,8 @@ echo == disable_sync    = $disable_sync
 echo == disable_setup   = $disable_setup
 echo == disable_release = $disable_release
 echo ==
+echo == user: `whoami`
+echo ==
 echo == FORCE_UNSAFE_CONFIGURE = $FORCE_UNSAFE_CONFIGURE
 echo ==
 echo ===========================================================================
