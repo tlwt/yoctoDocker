@@ -43,7 +43,6 @@ if [ ! -f $CUSTOMSTEP ]; then
       echo = no custom script: $CUSTOMSTEP
     else
       echo = running: $CUSTOMSTEP
-      chmod 755 $CUSTOMSTEP
       eval $CUSTOMSTEP
 fi
 
