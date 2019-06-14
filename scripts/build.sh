@@ -34,7 +34,7 @@ git -C /repo/yoctoDocker log -1 --format=%cd
 if [ -z "$GITHUB_TOKEN" ]
 then
       echo "No GITHUB token provided"
-      return
+      exit
 fi
 
 ## custom build step
