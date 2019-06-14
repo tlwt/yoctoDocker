@@ -23,9 +23,19 @@ echo == FORCE_UNSAFE_CONFIGURE = $FORCE_UNSAFE_CONFIGURE
 echo ==
 echo ===========================================================================
 
+start=`date +%s`
+
+echo == directory size `du -sh /data`
+
+
 echo == git repo latest commit
 git -C /repo/yoctoDocker log -1 --format=%cd
 
+if [ -z "$GITHUB_TOKEN" ]
+then
+      echo "No GITHUB token provided"
+      return
+fi
 
 ## custom build step
 CUSTOMSTEP=/drone/custombuild/scripts/step01.sh
@@ -204,3 +214,8 @@ if [ "1" != "$disable_release" ]
   else
     echo disable release
 fi
+
+echo == directory size `du -sh /data`
+
+end=`date +%s`
+echo Execution time was `expr $end - $start` seconds.
