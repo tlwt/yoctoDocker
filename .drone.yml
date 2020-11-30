@@ -1,19 +1,19 @@
 pipeline:
 
-#  build:
-#    image: tlwt/yoctodocker:v1.0
-#    secrets: [ GITHUB_TOKEN ]
-#    environment:
-#       - GIT_EMAIL=mail@tillwitt.de
-#       - GIT_NAME=Till Witt
-#       - Y_MACHINE=imx6ulevk
-#       - Y_DISTRO=fsl-imx-x11
-#       - Y_IMAGE=core-image-base
+  build:
+    image: tlwt/yoctodocker:v1.0
+    secrets: [ GITHUB_TOKEN ]
+    environment:
+       - GIT_EMAIL=mail@tillwitt.de
+       - GIT_NAME=Till Witt
+       - Y_MACHINE=imx6ulevk
+       - Y_DISTRO=fsl-imx-x11
+       - Y_IMAGE=core-image-base
 
-  slack: # pushing out notification
-    image: plugins/slack:latest
-    channel: build-automation
-    webhook: https://hooks.slack.com/services/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
-    when:
-      status: [ success, failure ]
+#  slack: # pushing out notification
+#    image: plugins/slack:latest
+#    channel: build-automation
+#    webhook: https://hooks.slack.com/services/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
+#    when:
+#      status: [ success, failure ]
 branches: master
